@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sarkófago Custom</title>
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#000; --bone:#ece7da; --mute:#9a958a; --line:#2b2b2b; --acc:#8a3b63;
+  --display:'Pirata One','Times New Roman',serif; --body:'Work Sans',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--bone);font:400 1rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05}
+
+/* hero */
+.hero{text-align:center;padding:56px 0 64px;border-bottom:1px solid var(--line)}
+.logo{width:min(250px,68vw);display:block;margin:0 auto 4px;opacity:.92;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(closest-side,#000 80%,transparent 100%)}
+.hero h1{font-size:clamp(3rem,11vw,5.5rem);letter-spacing:.01em}
+.hero p{max-width:34ch;margin:14px auto 0;color:var(--mute);font-size:1.05rem}
+.soon{display:block;margin-top:20px;font-size:1.3rem;letter-spacing:.05em;color:var(--bone)}
+
+/* sections */
+section{padding:56px 0}
+h2{font-size:clamp(2rem,6vw,2.8rem);margin-bottom:8px}
+.sub{color:var(--mute);margin:0 0 28px;max-width:52ch}
+
+/* filtros */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.chip{font:500 .9rem var(--body);background:none;color:var(--bone);border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--bone);color:var(--bg);border-color:var(--bone)}
+
+/* vitrine: molduras em formato de sarcófago */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:36px 24px}
+.item{display:flex;flex-direction:column}
+.frame{aspect-ratio:3/4;background:var(--bone);clip-path:polygon(32% 0,68% 0,100% 20%,82% 100%,18% 100%,0 20%);display:grid;place-items:center;overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover}
+.frame svg{width:34%;fill:var(--bg)}
+.item h3{font-size:1.5rem;margin-top:16px}
+.meta{color:var(--mute);font-size:.88rem;margin:2px 0 0}
+.desc{font-size:.95rem;margin:8px 0 0}
+.price{font-weight:600;margin:10px 0 14px}
+.btn{margin-top:auto;display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:11px 16px;background:var(--acc);color:#fff;text-decoration:none;font-weight:600;border-radius:4px}
+.btn:hover{background:#a24a78}
+.empty{color:var(--mute)}
+
+/* como comprar */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:0;margin:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line);padding-top:16px}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:2rem;color:var(--acc)}
+.steps strong{display:block;margin-bottom:4px}
+.steps span{color:var(--mute)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 48px;text-align:center}
+footer .links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:12px}
+footer small{display:block;margin-top:24px;color:var(--mute)}
+
+.teaser{display:grid;grid-template-columns:minmax(220px,330px) 1fr;gap:48px;align-items:center}
+.solo{width:100%}
+.frame{position:relative}
+.veil{position:absolute;inset:0;display:grid;place-items:center;font:500 1.45rem var(--body);letter-spacing:.06em;color:var(--bone);text-shadow:0 2px 14px #000;background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent)}
+.more{display:flex;flex-direction:column;align-items:flex-start}
+.more h3{font-size:clamp(1.9rem,5vw,2.5rem)}
+.more p{color:var(--mute);max-width:40ch;margin:10px 0 0}
+.slots{display:flex;gap:12px;margin:22px 0 26px}
+.slots span{width:52px;aspect-ratio:3/4;background:var(--line);clip-path:polygon(32% 0,68% 0,100% 20%,82% 100%,18% 100%,0 20%);display:grid;place-items:center;font:1.6rem var(--display);color:var(--mute)}
+@media(max-width:720px){.teaser{grid-template-columns:1fr;justify-items:center;text-align:center;gap:36px}.solo{max-width:300px}.more{align-items:center}.slots{justify-content:center}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="img/logo.png" alt="Logo Sarkófago: sarcófago branco com um ankh preto">
+    <h1>Sarkófago</h1>
+    <p>Moda e arte alternativas. Garimpo, peças únicas e criações.</p>
+    <span class="soon" aria-label="Em breve">⚰️𝑬𝑴 𝑩𝑹𝑬𝑽𝑬...</span>
+  </div>
+</header>
+
+<main>
+  <section id="vitrine">
+    <div class="wrap">
+      <h2>Vitrine</h2>
+      <p class="sub">As primeiras peças já estão na gaveta.</p>
+      <div class="teaser">
+        <article class="item solo">
+          <div class="frame">
+            <img src="img/peca_01.jpg" alt="Peça em estampa de onça, desfocada. Revelação em breve." style="filter:blur(7px) brightness(.92);transform:scale(1.12)">
+            <span class="veil">⚰️𝑬𝑴 𝑩𝑹𝑬𝑽𝑬...</span>
+          </div>
+
+          <p class="desc">Detalhes, tamanho e preço chegando em breve.</p>
+        </article>
+        <div class="more">
+          <h3>Produtos chegarão em breve</h3>
+          <p>Garimpos, customizações e peças feitas à mão. Mais detalhes no nosso perfil.</p>
+          <div class="slots" aria-hidden="true"></div>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.instagram.com/sarkofago.custom/">Quero saber mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Sarkófago Custom</h2>
+    <div class="links">
+      <a href="https://instagram.com/sarkofago.custom" target="_blank" rel="noopener">@sarkofago.custom</a>
+      <a href="https://ig.me/m/sarkofago.custom" target="_blank" rel="noopener">Chamar no direct</a>
+    </div>
+    <small>Peças unicas e limitadas.</small>
+  </div>
+</footer>
+
+</body>
+</html>
